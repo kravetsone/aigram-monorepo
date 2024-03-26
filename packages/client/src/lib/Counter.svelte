@@ -1,5 +1,7 @@
 <script lang="ts">
-  let count: number = 0
+  import {api} from "./api";
+
+  let count = 0
   const increment = () => {
     count += 1
   }

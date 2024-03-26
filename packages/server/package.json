@@ -1,5 +1,9 @@
 {
-    "name": "server",
+    "name": "@aigram-monorepo/server",
+    "exports": {
+        ".": "./src/index.ts"
+    },
+    "module": "./src/index.ts",
     "scripts": {
         "studio": "bunx drizzle-kit studio",
         "dev": "bun src/index.ts --watch",
