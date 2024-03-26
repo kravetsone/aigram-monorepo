@@ -1,27 +1,28 @@
 {
-  "name": "server",
-  "scripts": {
-    "dev": "bun src/index.ts --watch",
-    "lint": "bunx @biomejs/biome check src",
-    "lint:fix": "bun lint --apply",
-    "migration:generate": "bunx drizzle-kit generate:pg",
-    "migration:push": "bun src/db/migrate.ts",
-    "migrate": "bun migration:generate && bun migration:push",
-    "prepare": "husky"
-  },
-  "dependencies": {
-    "elysia": "^1.0.6",
-    "drizzle-orm": "^0.30.4",
-    "postgres": "^3.4.3",
-    "@elysiajs/cors": "^1.0.2",
-    "@elysiajs/jwt": "^1.0.2",
-    "@elysiajs/swagger": "^1.0.2"
-  },
-  "devDependencies": {
-    "typescript": "^5.4.2",
-    "@types/bun": "^1.0.10",
-    "@biomejs/biome": "^1.6.1",
-    "drizzle-kit": "^0.20.14",
-    "husky": "^9.0.11"
-  }
+    "name": "server",
+    "scripts": {
+        "studio": "bunx drizzle-kit studio",
+        "dev": "bun src/index.ts --watch",
+        "lint": "bunx @biomejs/biome check src",
+        "lint:fix": "bun lint --apply",
+        "migration:generate": "bunx drizzle-kit generate:pg",
+        "migration:push": "bun src/db/migrate.ts",
+        "migrate": "bun migration:generate && bun migration:push",
+        "prepare": "husky"
+    },
+    "dependencies": {
+        "elysia": "^1.0.6",
+        "drizzle-orm": "^0.30.4",
+        "postgres": "^3.4.3",
+        "@elysiajs/cors": "^1.0.2",
+        "@elysiajs/jwt": "^1.0.2",
+        "@elysiajs/swagger": "^1.0.2"
+    },
+    "devDependencies": {
+        "typescript": "^5.4.2",
+        "@types/bun": "^1.0.10",
+        "@biomejs/biome": "^1.6.1",
+        "drizzle-kit": "^0.20.14",
+        "husky": "^9.0.11"
+    }
 }
