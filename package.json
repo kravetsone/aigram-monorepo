@@ -1,0 +1,16 @@
+{
+  "name": "aigram",
+  "devDependencies": {
+    "concurrently": "^8.2.1"
+  },
+  "private": true,
+  "scripts": {
+    "dev:client": "cd packages/client && bun run dev",
+    "dev:server": "cd packages/server && bun run dev",
+    "dev": "concurrently \"bun run dev:server\" \"bun run dev:client\""
+  },
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ]
+}
