@@ -1,3 +1,3 @@
-import { pgTable } from "drizzle-orm/pg-core"
+// import { pgTable } from "drizzle-orm/pg-core"
 
-export const user = pgTable("users");
+// export const user = pgTable("users");
