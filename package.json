@@ -5,6 +5,7 @@
     "@elysiajs/eden": "^1.0.7",
     "autoprefixer": "^10.4.19",
     "carbon-components-svelte": "^0.85.0",
+    "carbon-icons-svelte": "^12.6.0",
     "concurrently": "^8.2.1",
     "pg": "^8.11.3",
     "postcss": "^8.4.38",
