@@ -22,6 +22,8 @@
     "packages/*"
   ],
   "dependencies": {
+    "effector": "^23.2.0",
+    "effector-storage": "^7.1.0",
     "svelte-spa-router": "^4.0.1"
   }
 }

@@ -8,8 +8,8 @@
     } from "carbon-components-svelte";
     import { writable } from "svelte/store";
     import { Login } from "carbon-icons-svelte";
-    import { api } from "../lib/api";
-	import {link} from 'svelte-spa-router'
+    import { link, push } from "svelte-spa-router";
+    import { signInFx } from "../stores/auth";
 
     let email = "";
     let password = "";
@@ -25,15 +25,8 @@
         <Form
             on:submit={async (e) => {
                 e.preventDefault();
-                // const { data, error } = await api.auth["sign-up"].post({
-                //     email,
-                //     name: username,
-                //     password,
-                // });
-
-                // if (error) return ($errorText = error.value);
-
-                // localStorage.setItem("token", data.token);
+                await signInFx({ email, password });
+                push("/");
             }}
         >
             <h3 class="mb-2">Авторизация</h3>
@@ -52,17 +45,21 @@
                 bind:value={password}
                 required
             />
-			<div class="flex flex-row gap-4 items-center">
-            <ButtonSet class="mt-2" stacked>
-                <Button
-                    class="bx--btn--full"
-                    icon={Login}
-                    skeleton={!$ready}
-                    type="submit">Авторизоваться</Button
-                >
-            </ButtonSet>
-			<p>Ещё не зарегистрированы? <a href="/sign-up" use:link>Зарегистрируйтесь</a></p>
-		</div>
+            <div class="flex flex-row gap-4 items-center">
+                <ButtonSet class="mt-2" stacked>
+                    <Button
+                        class="bx--btn--full"
+                        icon={Login}
+                        skeleton={!$ready}
+                        type="submit">Авторизоваться</Button
+                    >
+                </ButtonSet>
+                <p>
+                    Ещё не зарегистрированы? <a href="/sign-up" use:link
+                        >Зарегистрируйтесь</a
+                    >
+                </p>
+            </div>
         </Form>
     </div>
 </div>
