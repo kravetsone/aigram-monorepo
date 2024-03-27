@@ -8,8 +8,12 @@
     } from "carbon-components-svelte";
     import { writable } from "svelte/store";
     import { Login } from "carbon-icons-svelte";
-    import { link, push } from "svelte-spa-router";
+    import { link, replace } from "svelte-spa-router";
     import { signUpFx } from "../stores/auth";
+
+    if (localStorage.getItem("token")) {
+        replace("/");
+    }
 
     let username = "";
     let email = "";
@@ -25,7 +29,7 @@
             on:submit={async (e) => {
                 e.preventDefault();
                 await signUpFx({ email, password, name: username });
-                push("/");
+                replace("/");
             }}
         >
             <h3 class="mb-2">Регистрация аккаунта</h3>

@@ -2,9 +2,11 @@
     import { push } from "svelte-spa-router";
     import { user } from "../stores/user";
 
-    if (!$user) {
+    if (!localStorage.getItem("token")) {
         push("/sign-up");
     }
+
+    console.log($user);
 </script>
 
 {#if $user}

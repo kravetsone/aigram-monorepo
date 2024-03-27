@@ -8,8 +8,12 @@
     } from "carbon-components-svelte";
     import { writable } from "svelte/store";
     import { Login } from "carbon-icons-svelte";
-    import { link, push } from "svelte-spa-router";
+    import { link, replace } from "svelte-spa-router";
     import { signInFx } from "../stores/auth";
+
+    if (localStorage.getItem("token")) {
+        replace("/");
+    }
 
     let email = "";
     let password = "";
@@ -26,7 +30,7 @@
             on:submit={async (e) => {
                 e.preventDefault();
                 await signInFx({ email, password });
-                push("/");
+                replace("/");
             }}
         >
             <h3 class="mb-2">Авторизация</h3>
