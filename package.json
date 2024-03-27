@@ -1,6 +1,7 @@
 {
   "name": "aigram-monorepo",
   "devDependencies": {
+    "@carbon/styles": "^1.53.1",
     "@elysiajs/eden": "^1.0.7",
     "autoprefixer": "^10.4.19",
     "carbon-components-svelte": "^0.85.0",
