@@ -9,3 +9,5 @@ const migrationClient = postgres(process.env.DATABASE_URL as string, {
 console.log("🗄️ Migration started...");
 await migrate(drizzle(migrationClient), { migrationsFolder: "drizzle" });
 console.log("🗄️ Migration ended...");
+
+process.exit();
