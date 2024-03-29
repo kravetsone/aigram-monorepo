@@ -12,7 +12,8 @@ const app = new Elysia()
 	.use(jwtElysia)
 	.use(authRoutes)
 	.use(userRoutes)
-	.use(chatRoutes);
+	.use(chatRoutes)
+	.onError(console.error);
 
 app.listen(process.env.PORT as string, () =>
 	console.log(`🦊 Server started at ${app.server?.url.origin}`),

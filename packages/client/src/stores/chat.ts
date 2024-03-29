@@ -23,17 +23,16 @@ export const sendMessageFx = createEffect(
 		ws,
 		text,
 	}: { ws: ReturnType<typeof api.chat.subscribe>; text: string }) => {
-		console.log(ws, text);
 		ws.send(text);
 	},
 );
-sendMessage.watch(console.log);
+
 sample({
-	//@ts-expect-error
 	clock: sendMessage,
 	source: websocket,
 	filter: (ws) => !!ws,
-	fn: (ws, text) => ({ ws, text }),
+	// biome-ignore lint/style/noNonNullAssertion: remove later
+	fn: (ws, text) => ({ ws: ws!, text }),
 	target: sendMessageFx,
 });
 
