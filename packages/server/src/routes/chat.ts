@@ -53,7 +53,6 @@ export const chatRoutes = new Elysia().use(authElysia).ws("/chat", {
 		} as const;
 
 		ws.publish("global", msg);
-		ws.send(msg);
 
 		await db.insert(messages).values({
 			userId: ws.data.user.id,

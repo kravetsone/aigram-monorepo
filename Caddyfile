@@ -5,3 +5,9 @@
 # api-aigram.animaru.app {
 # 	reverse_proxy http://localhost:3000
 # }
+
+# chat.animaru.app {
+# 	 root * /root/aigram-monorepo/packages/client/dist
+#     file_server
+#     try_files {path} /index.html
+# }
