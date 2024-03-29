@@ -1,7 +1,3 @@
-# {
-# 	debug
-# }
-
 # api-aigram.animaru.app {
 # 	reverse_proxy http://localhost:3000
 # }

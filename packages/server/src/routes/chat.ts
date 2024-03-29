@@ -38,8 +38,7 @@ export const chatRoutes = new Elysia().use(authElysia).ws("/chat", {
 				user: { name: users.name, id: users.id },
 			})
 			.from(messages)
-			.innerJoin(users, eq(messages.userId, users.id))
-			.limit(20);
+			.innerJoin(users, eq(messages.userId, users.id));
 
 		ws.send({ event: "history", messages: history });
 	},

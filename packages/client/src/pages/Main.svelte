@@ -10,7 +10,8 @@
     if (!$token) {
         push("/sign-up");
     }
-    onMount(() => connectToChat($token || ""));
+    onMount(() => connectToChat());
+    console.log($token);
     console.log($user);
     console.log($messages);
 </script>
@@ -30,13 +31,15 @@
                     placeholder="Введите текст..."
                 />
                 <Button
-                    on:click={(e) => {
+                    on:click={() => {
                         sendMessage(text);
+                        text = "";
                     }}>Отправить</Button
                 >
             </div>
             <div>
-                Вы пишите от лица <span class="font-bold">{$user.name}</span>
+                Вы пишите от лица <span class="font-bold">{$user.name}</span>.
+                <!-- <Link on:click={() => setToken(null)}>Выйти</Link> -->
             </div>
         </div>
     </div>

@@ -1,5 +1,6 @@
 import { createEffect, createEvent, createStore, sample } from "effector";
 import { api } from "../lib/api";
+import { token } from "./auth";
 import { user } from "./user";
 
 export interface Message {
@@ -49,7 +50,7 @@ export const messages = createStore<Message[] | null>(null).on(
 	(old, newMessages) => (old ? old.concat(...newMessages) : [...newMessages]),
 );
 
-export const connectToChat = createEffect(async (token: string) => {
+export const connectToChatFx = createEffect(async (token: string) => {
 	const ws = api.chat.subscribe({
 		query: {
 			token: token,
@@ -72,4 +73,14 @@ export const connectToChat = createEffect(async (token: string) => {
 	return ws;
 });
 
-websocket.on(connectToChat.doneData, (_, ws) => ws);
+export const connectToChat = createEvent();
+
+sample({
+	clock: connectToChat,
+	source: [token, websocket] as const,
+	filter: ([token, ws]) => Boolean(token && !ws),
+	fn: ([token]) => token || "",
+	target: connectToChatFx,
+});
+
+websocket.on(connectToChatFx.doneData, (_, ws) => ws);
