@@ -3,12 +3,15 @@
   "devDependencies": {
     "@carbon/styles": "^1.53.1",
     "@elysiajs/eden": "^1.0.7",
+    "@iconify/icons-skill-icons": "^1.2.1",
     "autoprefixer": "^10.4.19",
     "carbon-components-svelte": "^0.85.0",
     "carbon-icons-svelte": "^12.6.0",
     "concurrently": "^8.2.1",
     "pg": "^8.11.3",
     "postcss": "^8.4.38",
+    "prettier": "^3.2.5",
+    "prettier-plugin-slidev": "^1.0.5",
     "tailwindcss": "^3.4.1"
   },
   "private": true,
@@ -23,6 +26,7 @@
   ],
   "dependencies": {
     "@elysiajs/bearer": "^1.0.2",
+    "aigram-monorepo": ".",
     "effector": "^23.2.0",
     "effector-storage": "^7.1.0",
     "svelte-spa-router": "^4.0.1"
